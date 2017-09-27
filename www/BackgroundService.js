@@ -6,13 +6,15 @@ var androidMode = {
     actived: false,
     enabled: false,
     //注册后台服务
-    start: function (success, failure) {
+    start: function (success, failure, config) {
         success = success || noop;
         failure = failure || noop;
         var callback = function () {
             androidMode.enabled = true;
             timer && clearInterval(timer);
-            timer = setInterval(success, 600000);
+            success();
+            var timeout = config && config.timeout ? config.timeout : 600000;
+            timer = setInterval(success, timeout);
         };
         cordova.exec(callback, failure, 'BackgroundMode', 'enable', []);
     },

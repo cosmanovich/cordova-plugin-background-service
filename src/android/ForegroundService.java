@@ -47,6 +47,11 @@ public class ForegroundService extends Service {
         super.onDestroy();
         sleepWell();
     }
+    
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+      return START_STICKY;
+    }
 
     /**
      * Class used for the client Binder.  Because we know this service always

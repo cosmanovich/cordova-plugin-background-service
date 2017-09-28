@@ -24,7 +24,8 @@
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <service android:name="com.anrip.cordova.ForegroundService" />
+            <service android:name="com.anrip.cordova.ForegroundService" 
+                     android:process=":ServiceProcess"/>
         </config-file>
 
         <config-file target="res/xml/config.xml" parent="/*">
